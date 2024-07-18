@@ -12,9 +12,9 @@ USE artist_investigators;
 -- #1071 - Specified key was too long; max key length is 1000 bytes
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT UNIQUE NOT NULL,
-  email VARCHAR(191) UNIQUE NOT NULL,  -- Reduced length to 191 
-  username VARCHAR(191) UNIQUE NOT NULL,  -- Reduced length to 191
+  user_id VARCHAR(191) UNIQUE NOT NULL,
+  email VARCHAR(191) UNIQUE NOT NULL,
+  username VARCHAR(50) UNIQUE NOT NULL,
   password_hash VARCHAR(255) NOT NULL,
   role VARCHAR(20) DEFAULT 'user' NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -24,7 +24,7 @@ CREATE TABLE users (
 CREATE TABLE posts (
   id INT AUTO_INCREMENT PRIMARY KEY,
   post_id INT UNIQUE NOT NULL,
-  user_id INT NOT NULL,
+  user_id VARCHAR(191) NOT NULL,
   title VARCHAR(255) NOT NULL,
   content TEXT NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -36,7 +36,7 @@ CREATE TABLE comments (
   id INT AUTO_INCREMENT PRIMARY KEY,
   comment_id INT UNIQUE NOT NULL,
   post_id INT NOT NULL,
-  user_id INT NOT NULL,
+  user_id VARCHAR(191) NOT NULL,
   content TEXT NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (post_id) REFERENCES posts(post_id),

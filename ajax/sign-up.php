@@ -15,6 +15,12 @@ $username = $_ENV['DB_USERNAME'];
 $password = $_ENV['DB_PASSWORD'];
 $database = $_ENV['DB_DATABASE'];
 
+// email config from env vars
+$emailHost = $_ENV['EMAIL_HOST'];
+$emailPort = $_ENV['EMAIL_PORT'];
+$emailUsername = $_ENV['EMAIL_USERNAME'];
+$emailPassword = $_ENV['EMAIL_PASSWORD'];
+
 // connect to db using PDO
 try {
     $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
@@ -25,7 +31,7 @@ try {
 
 // to sanitize input
 function sanitizeInput($data) {
-    return htmlspecialchars(stripcslashes(trim($data)));
+    return htmlspecialchars(stripslashes(trim($data)));
 }
 
 // to validate inputs/ check for errors
@@ -73,20 +79,20 @@ function validateInput($data, $pdo) {
 }
 
 // function to send welcome email using PHPMailer
-function sendWelcomeEmail($email, $username) {
+function sendWelcomeEmail($email, $username, $emailHost, $emailPort, $emailUsername, $emailPassword) {
     $phpmailer = new PHPMailer();
     $phpmailer->isSMTP();
-    $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+    $phpmailer->Host = $emailHost;
     $phpmailer->SMTPAuth = true;
-    $phpmailer->Port = 2525;
-    $phpmailer->Username = 'f75fa1c791f58d';
-    $phpmailer->Password = '803641885c348f';
+    $phpmailer->Port = $emailPort;
+    $phpmailer->Username = $emailUsername;
+    $phpmailer->Password = $emailPassword;
 
-    $phpmailer->setFrom('noreply@yourdomain.com', 'Your Application Name');
+    $phpmailer->setFrom('noreply@yourdomain.com', 'Artist Investigators');
     $phpmailer->addAddress($email, $username);
 
     $phpmailer->isHTML(true);
-    $phpmailer->Subject = 'Welcome to Our Application!';
+    $phpmailer->Subject = 'Welcome to Artist Investigators!';
     $phpmailer->Body = '
         <html>
         <head>
@@ -218,16 +224,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
         // insert user into db
-        $stmt = $pdo->prepare("INSERT INTO users (username, email, password_hash) VALUES (:username, :email, :password_hash)");
+        $stmt = $pdo->prepare("INSERT INTO users (user_id, email, username, password_hash) VALUES (:user_id, :email, :username, :password_hash)");
         $stmt->execute([
-            'username' => $username,
+            'user_id' => $email, // using email as user_id
             'email' => $email,
+            'username' => $username,
             'password_hash' => $passwordHash
         ]);
 
         // send welcome email
-        sendWelcomeEmail($email, $username);
+        sendWelcomeEmail($email, $username, $emailHost, $emailPort, $emailUsername, $emailPassword);
 
         echo "<p>Sign-Up successful! Check your email!</p>";
     }
 }
+?>
