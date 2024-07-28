@@ -1,5 +1,9 @@
 <?php
-require '../vendor/autoload.php'; //configure vendor classes
+// session security
+session_start();
+
+//configure vendor classes
+require '../vendor/autoload.php'; 
 
 use Dotenv\Dotenv;
 
@@ -29,6 +33,7 @@ function sanitizeInput($data) {
 // to validate inputs/ check for errors
 function validateInput($data, $pdo) {
     $errors = [];
+    $user = null;
 
     // required fields
     if (empty($data['email'])) {
@@ -43,16 +48,17 @@ function validateInput($data, $pdo) {
 
     // check if email and password match a user in the database
     if (empty($errors)) {
-        $stmt = $pdo->prepare("SELECT password_hash FROM users WHERE email = :email");
+        $stmt = $pdo->prepare("SELECT id, password_hash FROM users WHERE email = :email");
         $stmt->execute(['email' => $data['email']]);
-        $storedPasswordHash = $stmt->fetchColumn();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($storedPasswordHash === false || !password_verify($data['password'], $storedPasswordHash)) {
+        if ($user === false || !password_verify($data['password'], $user['password_hash'])) {
             $errors[] = "The email address or password is incorrect.";
+            $user = null;
         }
     }
 
-    return $errors;
+    return [$errors, $user];
 }
 
 // form via post method
@@ -68,18 +74,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     // validate input data
-    $validationErrors = validateInput($inputData, $pdo);
+    list($validationErrors, $user) = validateInput($inputData, $pdo);
 
     if (!empty($validationErrors)) {
         // return if validation errors
-        echo '<ul class="error-message">';
-        foreach ($validationErrors as $error) {
-            echo "<li>$error</li>";
-        }
-        echo "</ul>";
+        echo json_encode(['errors' => $validationErrors]);
     } else {
-        // success
-        echo "<p class='success-message'>Sign-In successful!</p>";
+        // on success set the session var + redir to dashboard.html (instead of success msg)
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['email'] = $email;
+        echo json_encode(['success' => true, 'redirect' => 'dashboard.html']);
     }
 }
 ?>

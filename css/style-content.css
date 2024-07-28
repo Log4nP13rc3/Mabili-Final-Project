@@ -1,0 +1,410 @@
+/* General Styles */
+body {
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* General button styles */
+button, .button, nav a {
+    font-size: 16px; /* Set a consistent font size for all buttons and nav links */
+    transition: background-color 0.3s ease;
+}
+
+/* Header */
+header {
+    background-color: #333333;
+    color: #f8f8f8;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure the header stays on top of other content */
+}
+
+/* Logo */
+.header-logo {
+    width: 350px;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Header Right Section */
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align items to the right */
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%; /* Ensure the search container takes full width */
+}
+
+#search-bar, .search-container button {
+    font-size: 16px;
+    width: calc(100% - 10px); /* Adjust width to account for margin */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin: 5px; 
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.search-container button {
+    background-color: #2c6e6fff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #265c5d;
+}
+
+/* Navigation Links */
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px; /* Add space between buttons */
+}
+
+/* Specific Styles for Each Link */
+nav a.about {
+    background-color: #c5a880;
+}
+
+nav a.about:hover {
+    background-color: #b08e72;
+}
+
+nav a.contact {
+    background-color: #2c6e6f;
+}
+
+nav a.contact:hover {
+    background-color: #265c5d;
+}
+
+nav a.signout {
+    background-color: #ff6f61;
+}
+
+nav a.signout:hover {
+    background-color: #e66055;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+}
+
+aside {
+    width: 15%;
+    padding: 10px;
+}
+
+#middle {
+    width: 70%;
+    padding: 10px;
+}
+
+/* Activity Feed Container */
+.activity-feed {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+}
+
+/* Tile Styling */
+.tile {
+    background-color: #fff; 
+    border: 1px solid #7f8c8d; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    position: relative; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
+}
+
+.tile:hover {
+    transform: translateY(-10px); /* Move the tile up */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to create a pop effect */
+}
+
+/* Tile Image */
+.tile img {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.tile h3 {
+    color: #333333;
+    font-size: 16px;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    margin-bottom: 10px;
+}
+
+.dropdown button {
+    width: 100%;
+    padding: 10px;
+    background-color: #c5a880;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.dropdown button:hover {
+    background-color: #b08e72;
+}
+
+.dropdown-list {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #7f8c8d;
+    border-radius: 5px;
+}
+
+.dropdown-list li {
+    border-bottom: 1px solid #7f8c8d;
+}
+
+.dropdown-list li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333333;
+}
+
+.dropdown-list li a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+}
+
+.profile-pic {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    display: inline-block; 
+}
+
+.quick-links {
+    margin-top: 10px;
+}
+
+.quick-links .button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #2c6e6f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.quick-links .button:hover {
+    background-color: #265c5d;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333333ff; /* Header and Footer Background Color */
+    color: #f8f8f8ff; /* Header and Footer Text Color */
+    flex-wrap: wrap; /* Ensure content wraps on smaller screens */
+}
+
+/* Footer columns */
+footer > div {
+    flex: 1;
+    min-width: 250px; /* Minimum width for each column */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Heading styling */
+footer h3 {
+    margin-top: 0;
+    margin-bottom: 10px; /* Spacing below headings */
+}
+
+/* Input field styling */
+footer input[type="email"] {
+    display: block;
+    width: 100%; /* Full width minus padding */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Button styling */
+footer button {
+    padding: 10px;
+    background-color: #ff6f61ff; 
+    color: #f8f8f8ff; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Full width button */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+footer button:hover {
+    background-color: #ff7f50; 
+}
+
+/* Legal list styling */
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    margin-bottom: 10px;
+}
+
+footer li a {
+    color: #f8f8f8ff; /* Link Color */
+    text-decoration: none;
+}
+
+footer li a:hover {
+    text-decoration: underline;
+}
+
+/* Social media section */
+footer .social-media-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #f8f8f8ff; /* Text color */
+    text-decoration: none; /* Remove underline */
+}
+
+footer .social-media-link i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 24px; /* Size of the icon */
+}
+
+footer .social-media-link:hover {
+    color: #ff7f50; /* Hover color */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    /* Adjust for tablets */
+    .header-logo {
+        width: 350px;
+        margin-bottom: 10px;
+    }
+
+    aside {
+        width: 20%;
+    }
+
+    #middle {
+        width: 60%;
+    }
+
+    #right {
+        width: 20%;
+    }
+}
+
+@media (max-width: 768px) { /* Adjust for phones */
+    /* Header */
+    header {
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .header-logo {
+        width: 150px;
+        margin-bottom: 10px;
+    }
+
+    .header-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-container {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    /* Main */
+    main {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        align-items: center;
+    }
+
+    #left, #right, #middle {
+        width: 100%; /* Ensure full width */
+        
+    }
+
+    /* Categories and User Profile */
+    #left, #right {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* Activity Feed */
+    .activity-feed {
+        grid-template-columns: 1fr; /* One tile per row */
+    }
+}

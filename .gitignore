@@ -49,7 +49,7 @@ Thumbs.db
 *.wmv
 
 # Environment variables file
-.env
+.env/
 
 # Meta files
-.meta
+.meta/

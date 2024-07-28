@@ -13,9 +13,20 @@ $(document).ready(function() {
             url: 'ajax/sign-in.php',
             type: 'POST',
             data: userData,
+            dataType : 'json',
             success: function(response) {
-                //display the server's response in the message div
-                $('#message').html(response);
+                if (response.errors) {
+                    //display the server's validation errors
+                    let errorHtml = '<ul class="error-message">';
+                    response.errors.forEach(function(error) {
+                        errorHtml += '<li>' + error + '</li>';
+                    });
+                    errorHtml += '</ul>';
+                    $('#message').html(errorHtml);
+                } else if (response.success) {
+                    //redirect to dashboard
+                    window.location.href = response.redirect;
+                }
             },
             error: function(xhr, status, error) {
                 //if error then display error instead
