@@ -1,0 +1,8 @@
+-- Create Reset Password table
+CREATE TABLE IF NOT EXISTS reset_password (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(191) NOT NULL,
+    pin VARCHAR(6) NOT NULL,
+    token VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
