@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Forgotten Password</title>
     <link rel="icon" href="media/branding/icon.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/sign-in.js"></script>
-    <script src="js/check-and-logout.js"></script>
+    <script src="js/forgotten-password.js"></script>
 </head>
 <body>
     <header>
@@ -24,25 +23,16 @@
                     <img src="media/branding/logo.jpeg" alt="Artist Investigators Logo" class="logo">
                 </div>
                 <div class="sign-in-form-container">
-                    <h1 class="page-heading">Sign In</h1>
-                    <form id="sign-in-form" aria-labelledby="sign-in-heading" class="sign-in-form">
+                    <h1 class="page-heading">Forgotten Password</h1>
+                    <form id="forgotten-password-form" aria-labelledby="forgotten-password-heading" class="sign-in-form">
                         <div class="form-group">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" required aria-required="true" placeholder="Enter your email address" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required aria-required="true" placeholder="Enter your password" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="sign-in-button">Sign In</button>
+                        <button type="submit" class="btn btn-primary" id="forgotten-password-button">Submit</button>
                     </form>
                     <div id="message"></div>
-                    <nav class="sign-in-nav">
-                        <ul>
-                            <li><a href="forgotten-password.php" class="btn btn-link">Forgot your password?</a></li>
-                            <li><a href="sign-up.html" class="btn btn-link">Sign Up</a></li>
-                        </ul>
-                    </nav>
+                    <p><a href="sign-in.html" class="btn btn-link">Back to Sign-In</a></p>
                 </div>
             </div>
         </section>
