@@ -21,6 +21,9 @@ $emailPort = $_ENV['EMAIL_PORT'];
 $emailUsername = $_ENV['EMAIL_USERNAME'];
 $emailPassword = $_ENV['EMAIL_PASSWORD'];
 
+// root URL from env vars
+$appRootUrl = $_ENV['APP_ROOT_URL'];
+
 // connect to db using PDO
 try {
     $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
@@ -86,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phpmailer->setFrom('noreply@yourdomain.com', 'Artist Investigators');
     $phpmailer->addAddress($email);
 
-    $resetLink = 'http://localhost/final-project/set-password.php?pin=' . $pin . '&token=' . $token;
+    $resetLink = $appRootUrl . '/set-password.php?pin=' . $pin . '&token=' . $token;
     
     $phpmailer->isHTML(true);
     $phpmailer->Subject = 'Password Reset Request';
