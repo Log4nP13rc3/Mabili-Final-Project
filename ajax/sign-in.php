@@ -80,10 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // return if validation errors
         echo json_encode(['errors' => $validationErrors]);
     } else {
-        // on success set the session var + redir to dashboard.html (instead of success msg)
+        // on success set the session var + redir to dashboard.php (instead of success msg)
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['email'] = $email;
-        echo json_encode(['success' => true, 'redirect' => 'dashboard.html']);
+        echo json_encode(['success' => true, 'redirect' => 'dashboard.php']);
     }
 }
 ?>

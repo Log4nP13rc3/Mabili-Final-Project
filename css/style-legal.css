@@ -1,0 +1,96 @@
+/* CSS HEX Palette: 
+    --seasalt: #f8f8f8ff; for body background
+    --white-smoke: #f2f2f2ff; for any other areas that need a background to stand out
+    --jet: #333333ff; primary text 
+    --dim-gray: #666666ff; secondary text
+    --tan: #c5a880ff; secondary buttons with a hover state of #b08e72
+    --caribbean-current: #2c6e6fff; primary buttons with a hover state of #265c5d
+    --bittersweet: #ff6f61ff; any other accents
+    --battleship-gray: #7f8c8dff; borders/dividers, links and their hover effects
+    --charcoal: #2c3e50ff; borders/dividers, links and their hover effects
+*/
+
+body, html {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8ff; 
+}
+
+/* Header */
+.header-icon {
+    max-width: 24px; 
+    vertical-align: middle;
+    margin-right: 10px; 
+}
+
+header {
+    background-color: #333333ff; 
+    color: #f8f8f8ff; 
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.branding {
+    font-size: 24px;
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    padding: 20px;
+    background-color: #f2f2f2ff;
+    color: #333333ff;
+    text-align: left;
+}
+
+main h1 {
+    font-size: 32px;
+    color: #333333ff;
+    margin-bottom: 20px;
+}
+
+main h2 {
+    font-size: 24px;
+    color: #666666ff;
+    margin-top: 20px;
+}
+
+main p, main ul {
+    font-size: 16px;
+    color: #666666ff;
+    margin-bottom: 20px;
+}
+
+main ul {
+    padding-left: 20px;
+}
+
+main li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #ff6f61ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF7F50;
+}
+
+/* Footer */
+footer {
+    background-color: #333333ff; 
+    color: #f8f8f8ff; 
+    padding: 10px 20px;
+    text-align: center;
+}

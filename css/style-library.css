@@ -1,0 +1,148 @@
+/* Body and Main Layout */
+body, html {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8; /* Seasalt */
+}
+
+/* Header */
+header {
+    background-color: #333333; /* Jet */
+    color: #f8f8f8; /* Seasalt */
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.header-icon {
+    max-width: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.branding {
+    font-size: 24px;
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top for better visual hierarchy */
+    padding: 40px 20px; /* Add more padding for spacing */
+}
+
+/* Content Section */
+.content-section {
+    background-color: #f2f2f2; /* White Smoke */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Headings */
+.page-heading {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333333; /* Jet */
+    font-size: 28px; /* Larger font size */
+    font-weight: bold; /* Emphasize the heading */
+}
+
+.topic-heading {
+    margin-top: 30px;
+    color: #333333; /* Jet */
+    font-size: 22px; /* Ensure there's enough distinction between headings */
+    font-weight: bold; /* Emphasize section headings */
+}
+
+/* Paragraphs */
+p {
+    color: #666666; /* Dim Gray */
+    line-height: 1.6; /* Improve readability with increased line-height */
+    margin-bottom: 20px; /* Add space after paragraphs */
+}
+
+/* Keywords and Lists */
+ul {
+    color: #333333; /* Jet */
+    margin: 15px 0;
+    padding-left: 20px; /* Add indentation */
+}
+
+li {
+    margin-bottom: 10px; /* Add space between list items */
+}
+
+/* Examples Section */
+.examples-container {
+    display: flex;
+    flex-direction: column; /* Stack examples vertically */
+    margin-top: 30px;
+}
+
+.example {
+    background-color: #f2f2f2; /* White Smoke */
+    border: 1px solid #7f8c8d; /* Battleship Gray */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.artwork-image {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.artwork-video {
+    width: 100%; /* Adjust to fit your layout */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.example h4 {
+    color: #333333; /* Jet */
+    margin-bottom: 10px;
+    font-size: 20px; /* Increase font size for titles */
+}
+
+.example p {
+    color: #666666; /* Dim Gray */
+    margin: 5px 0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Add space above the button */
+}
+
+.btn-primary {
+    background-color: #2c6e6f; /* Caribbean Current */
+    color: #f8f8f8; /* Seasalt */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #ff6f61; /* Bittersweet */
+}
+
+/* Footer */
+footer {
+    background-color: #333333; /* Jet */
+    color: #f8f8f8; /* Seasalt */
+    padding: 10px 20px;
+    text-align: center;
+}

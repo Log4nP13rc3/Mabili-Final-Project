@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Then, after a delay, redirect to sign-in.html
                 setTimeout(function() {
                     window.location.href = 'sign-in.html';
-                }, 3000); 
+                }, 2000); 
             }
         })
         .catch(error => {
@@ -20,6 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
             // Then, after a delay, redirect to sign-in.html
             setTimeout(function() {
                 window.location.href = 'sign-in.html';
-            }, 3000); 
+            }, 2000); 
         });
 });
