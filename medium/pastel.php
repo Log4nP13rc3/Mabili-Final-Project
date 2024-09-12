@@ -51,18 +51,34 @@ session_start();
                 <h3>Examples:</h3>
                 <div class="examples-container">
                     <div class="example">
-                        <img src="../media/artworks/after-the-bath.jpg" alt="After the Bath by Edgar Degas" class="artwork-image">
-                        <h4>Artwork Title: After the Bath</h4>
-                        <p>Artist: Edgar Degas</p>
-                        <p>Year: 1895</p>
-                        <p>Description: A soft pastel landscape with delicate color transitions and atmospheric effects.</p>
+                        <img src="../media/artworks/save-us.jpg" alt="Save Us by Luzanne Erasmus" class="artwork-image">
+                        <h4>Artwork Title: Save Us</h4>
+                        <p>Artist: Luzanne Erasmus</p>
+                        <p>
+                            <a href="https://www.instagram.com/luzanne_erasmus_art?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                style="color: #ff6f61ff; text-decoration: none;">
+                                Click here to connect with Luzanne on Instagram
+                            </a>
+                        </p>
+                        <p>Year: 2021</p>
+                        <p>Description: This artwork depicts a majestic white rhino, skillfully rendered in soft pastels. The soft pastel medium enhances the rhino’s natural texture, bringing out the ruggedness of its thick skin and the fine details of its horn. The blending capabilities of the pastels allow for smooth transitions between light and shadow, giving the rhino a lifelike appearance and adding depth to its form. The warm background contrasts subtly with the rhino’s cool gray tones, further emphasizing its imposing presence. This choice of medium complements the subject’s raw strength and beauty, highlighting both its grandeur and vulnerability.</p>
                     </div>
                     <div class="example">
-                        <img src="../media/artworks/the-letter.jpg" alt="The Letter by Mary Cassatt" class="artwork-image">
-                        <h4>Artwork Title: The Letter</h4>
-                        <p>Artist: Mary Cassatt</p>
-                        <p>Year: 1891</p>
-                        <p>Description: A pastel drawing of a bustling street scene, capturing the lively movement and bright colors.</p>
+                    <img src="../media/artworks/untitled.jpg" alt="Untitled by Luzanne Erasmus" class="artwork-image">
+                        <h4>Artwork Title: Untitled</h4>
+                        <p>Artist: Luzanne Erasmus</p>
+                        <p>
+                            <a href="https://www.instagram.com/luzanne_erasmus_art?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                style="color: #ff6f61ff; text-decoration: none;">
+                                Click here to connect with Luzanne on Instagram
+                            </a>
+                        </p>
+                        <p>Year: 2023</p>
+                        <p>Description: This artwork, created using soft pastels, captures the unique essence of a cat in a highly detailed yet delicate manner. The pastel medium is expertly utilized to create soft, velvety textures, particularly evident in the cat's fur, which is highlighted with gentle blends of brown and cream tones. The smooth transitions between colors, a hallmark of pastel work, allow for subtle shading that brings the cat’s body and elongated form to life. The artist has taken advantage of the pastels' ability to layer color softly, adding dimension and depth to the fur and facial features. The cat’s large, expressive ears and upward gaze evoke a sense of curiosity, while the warm, earthy pastel palette emphasizes the gentle and serene nature of the subject. This piece showcases the versatility of pastels in creating both detail and softness in a naturalistic yet whimsical portrayal of the animal.</p>
                     </div>
                 </div>
 

@@ -6,6 +6,7 @@ $(document).ready(function() {
         let userData = {
             email: $('#email').val(),
             password: $('#password').val(),
+            honeypot: $('#honeypot').val()
         };
 
         //then sending ajax request to server
@@ -33,5 +34,18 @@ $(document).ready(function() {
                 $('#message').html('An error occurred: ' + error);
             }
         });
+    });
+
+    //peek mechanism for password fields
+    $('.toggle-password').on('click', function() {
+        // Toggle the type attribute of the password field
+        let input = $(this).siblings('input');
+        if (input.attr('type') === 'password') {
+            input.attr('type', 'text');
+            $(this).removeClass('fa-eye').addClass('fa-eye-slash');
+        } else {
+            input.attr('type', 'password');
+            $(this).removeClass('fa-eye-slash').addClass('fa-eye');
+        }
     });
 });

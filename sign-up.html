@@ -6,6 +6,7 @@
     <title>Sign Up</title>
     <link rel="icon" href="media/branding/icon.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/sign-up.js"></script>
     <script src="js/check-and-logout.js"></script>
@@ -25,7 +26,7 @@
                 </div>
                 <div class="sign-in-form-container">
                     <h1 class="page-heading">Sign Up</h1>
-                    <form action="#" method="post" aria-labelledby="sign-in-heading" class="sign-in-form">
+                    <form id="signUpForm" action="#" method="post" aria-labelledby="sign-in-heading" class="sign-in-form">
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" id="username" name="username" required aria-required="true" placeholder="Create your username" class="form-control">
@@ -36,11 +37,22 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required aria-required="true" placeholder="Create a password of at least 8 characters" class="form-control">
+                            <div class="password-container">
+                                <input type="password" id="password" name="password" required aria-required="true" placeholder="Create a password of at least 8 characters" class="form-control">
+                                <i class="toggle-password fa fa-eye"></i>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="confirm-password">Confirm Password</label>
-                            <input type="password" id="confirm-password" name="confirm-password" required aria-required="true" placeholder="Re-enter your password" class="form-control">
+                            <div class="password-container">
+                                <input type="password" id="confirm-password" name="confirm-password" required aria-required="true" placeholder="Re-enter your password" class="form-control">
+                                <i class="toggle-password fa fa-eye"></i>
+                            </div>
+                        </div>
+                        <!-- Honeypot field (hidden from users) -->
+                        <div style="display:none;">
+                            <label for="website">If you are human, leave this field blank:</label>
+                            <input type="text" id="website" name="website">
                         </div>
                         <button type="submit" id="sign-up-button" class="btn btn-primary">Sign Up</button>
                     </form>
@@ -54,8 +66,71 @@
             </div>
         </section>
     </main>
+
+    <!-- Popup structure -->
+    <div id="emailPopup" style="display:none;">
+        <div class="popup-content">
+            <h2>What the email would look like:</h2>
+            <div id="emailContent"></div>
+            <button id="closePopup" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Artist Investigators. All rights reserved.</p>
     </footer>
+
+    <script>
+        // On form submission, fetch the email content and show the popup
+        document.getElementById('signUpForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+            
+            // Get email content from the session (via AJAX call)
+            fetch('ajax/get-email-content.php') 
+              .then(response => response.text())
+              .then(emailContent => {
+                document.getElementById('emailContent').innerHTML = emailContent;
+                document.getElementById('emailPopup').style.display = 'block';
+              });
+        });
+
+        // Close the popup
+        document.getElementById('closePopup').addEventListener('click', function() {
+            document.getElementById('emailPopup').style.display = 'none';
+        });
+    </script>
+
+    <style>
+        /* Basic CSS for the popup */
+        #emailPopup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .email-wrapper main {
+            display: block;
+            flex: none;
+        }
+
+        #closePopup {
+            background-color: #ff6f61ff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popup-content {
+            max-height: 500px;
+            max-width: 500px;
+            overflow-y: auto;
+        }
+    </style>
 </body>
 </html>

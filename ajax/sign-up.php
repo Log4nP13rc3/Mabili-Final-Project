@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require '../vendor/autoload.php'; //configure vendor classes
 
 use Dotenv\Dotenv;
@@ -93,13 +95,12 @@ function sendWelcomeEmail($email, $username, $emailHost, $emailPort, $emailUsern
 
     $phpmailer->isHTML(true);
     $phpmailer->Subject = 'Welcome to Artist Investigators!';
-    $phpmailer->Body = '
+    $emailContent = '
         <html>
         <head>
             <style>
                 body, html {
-                    display: flex;
-                    flex-direction: column;
+                    display:
                     min-height: 100vh;
                     margin: 0;
                     padding: 0;
@@ -176,18 +177,30 @@ function sendWelcomeEmail($email, $username, $emailHost, $emailPort, $emailUsern
         </body>
         </html>
     ';
-        
-        $phpmailer->AltBody = "Welcome to Artist Investigators, $username!\n\nThank you for signing up.";
+    $phpmailer->Body = $emailContent;
+    $phpmailer->AltBody = "Welcome to Artist Investigators, $username!\n\nThank you for signing up.";
 
-        try {
-            $phpmailer->send();
-        } catch (Exception $e) {
-            echo "Email could not be sent. Mailer Error: {$phpmailer->ErrorInfo}";
-        }
+    // Store the email content in the session
+    $_SESSION['emailContent'] = $emailContent;
+
+    // Debugging: Print session data
+    file_put_contents('debug.log', print_r($_SESSION, true), FILE_APPEND);
+
+    try {
+        $phpmailer->send();
+    } catch (Exception $e) {
+        echo "Email could not be sent. Mailer Error: {$phpmailer->ErrorInfo}";
     }
+}
 
 // form via post method
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // check honeypot field
+    if (!empty($_POST['website'])) {
+        echo "<p>Bot detected. Please try again.</p>";
+        exit;
+    }
+
     // sanitize input data
     $username = sanitizeInput($_POST['username']);
     $email = sanitizeInput($_POST['email']);

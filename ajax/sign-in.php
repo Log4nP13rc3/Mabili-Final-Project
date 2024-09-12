@@ -63,6 +63,13 @@ function validateInput($data, $pdo) {
 
 // form via post method
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check the honeypot field
+    if (!empty($_POST['honeypot'])) {
+        // Detected a bot, exit or show an error
+        echo json_encode(['errors' => ['Bot detected. Please try again.']]);
+        exit;
+    }
+
     // sanitize input data
     $email = sanitizeInput($_POST['email']);
     $password = sanitizeInput($_POST['password']);

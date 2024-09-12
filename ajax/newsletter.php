@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../vendor/autoload.php'; // Configure vendor classes
 
 use Dotenv\Dotenv;
@@ -149,7 +150,10 @@ function sendConfirmationEmail($email, $emailHost, $emailPort, $emailUsername, $
         </body>
         </html>
     ';
-    
+
+    // Store email content in session
+    $_SESSION['emailContent'] = $phpmailer->Body;
+
     $phpmailer->AltBody = "Thank you for subscribing to our newsletter!\n\nYou will start receiving our monthly updates soon.";
 
     try {
@@ -157,6 +161,11 @@ function sendConfirmationEmail($email, $emailHost, $emailPort, $emailUsername, $
     } catch (Exception $e) {
         echo "Email could not be sent. Mailer Error: {$phpmailer->ErrorInfo}";
     }
+}
+
+// Ensure $_SESSION['emailContent'] is set to a loading state if not already set
+if (!isset($_SESSION['emailContent'])) {
+    $_SESSION['emailContent'] = 'Loading email content...';
 }
 
 // Process form submission

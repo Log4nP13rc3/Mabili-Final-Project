@@ -53,11 +53,12 @@ function validateInput($data, $pdo) {
     if (empty($data['pin']) || empty($data['token'])) {
         $errors[] = "Invalid request.";
     } else {
-        $stmt = $pdo->prepare("SELECT email FROM reset_password WHERE pin = :pin AND token = :token");
-        $stmt->execute(['pin' => $data['pin'], 'token' => $data['token']]);
+        // Fetch the hashed token from the database
+        $stmt = $pdo->prepare("SELECT email, token FROM reset_password WHERE pin = :pin");
+        $stmt->execute(['pin' => $data['pin']]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user === false) {
+        if ($user === false || !password_verify($data['token'], $user['token'])) {
             $errors[] = "Invalid pin or token.";
         }
     }

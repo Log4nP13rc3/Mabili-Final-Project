@@ -87,6 +87,50 @@ header {
     margin-bottom: 10px;
 }
 
+/* About the Creator Section */
+.business-card {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8; /* Light background color */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Increased space inside the card */
+    margin-bottom: 20px; /* Space below the card */
+    max-width: 500px; /* Increased max width of the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a 3D effect */
+}
+
+.card-photo {
+    width: 200px; /* Increased width for the photo */
+    height: 200px; /* Increased height for the photo */
+    border-radius: 50%; /* Circle shape */
+    margin-right: 20px; /* Increased space between the photo and text */
+}
+
+.card-info {
+    flex: 1; /* Allow info to fill the remaining space */
+}
+
+.card-name {
+    font-size: 1.5em; /* Larger font size for the name */
+    margin: 0; /* Remove default margin */
+}
+
+.card-caption {
+    font-size: 1em; /* Font size for the caption */
+    color: #555; /* Darker color for the caption */
+    margin: 5px 0; /* Space above and below the caption */
+}
+
+.card-link a {
+    color: #2c6e6f; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.card-link a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
 /* Vision & Mission Section */
 .vision-mission {
     padding: 20px;

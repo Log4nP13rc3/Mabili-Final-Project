@@ -30,7 +30,7 @@ $(document).ready(function() {
                     $('#message').html('<p>Password successfully updated. Redirecting to sign-in page...</p>');
                     setTimeout(function() {
                         window.location.href = 'index.html';
-                    }, 2000);
+                    }, 0);
                 }
             },
             error: function(xhr, status, error) {

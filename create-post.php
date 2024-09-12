@@ -77,6 +77,7 @@ if (isset($_SESSION['user_id'])) {
                             <option value="charcoal">Charcoal</option>
                             <option value="graphite">Graphite</option>
                             <option value="pastel">Pastel</option>
+                            <option value="polymer-clay">Polymer Clay</option>
                             <option value="mixed-media">Mixed Media</option>
                             <option value="digital-art">Digital Art</option>
                             <option value="collage">Collage</option>

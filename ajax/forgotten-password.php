@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require '../vendor/autoload.php'; //configure vendor classes
 
 use Dotenv\Dotenv;
@@ -68,13 +70,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // generate pin and token
     $pin = mt_rand(100000, 999999);
     $token = bin2hex(random_bytes(50));
+    $hashedToken = password_hash($token, PASSWORD_BCRYPT);
 
     // insert into reset_password table
     $stmt = $pdo->prepare("INSERT INTO reset_password (email, pin, token) VALUES (:email, :pin, :token)");
     $stmt->execute([
         'email' => $email,
         'pin' => $pin,
-        'token' => $token
+        'token' => $hashedToken // store hashed token
     ]);
 
     // send reset email
@@ -181,11 +184,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $phpmailer->AltBody = "We received a request to reset your password. Click the link below to reset your password: " . $resetLink . " If you did not request a password reset, please ignore this email. Warm regards, The Artist Investigators Team";
 
+    // Attempt to send the email
     if (!$phpmailer->send()) {
         echo json_encode(['errors' => ["Mail could not be sent. Mailer Error: " . $phpmailer->ErrorInfo]]);
         exit;
     }
 
+    // Store the email content in the session
+    $_SESSION['emailContent'] = $phpmailer->Body;
+
+    // Return a success response
     echo json_encode(['success' => true]);
 }
 ?>

@@ -34,9 +34,35 @@ session_start();
             <h3>Curated Content</h3>
             <p>In addition to user-generated content, our team at Artist Investigators provides curated posts for new users to enjoy. These include detailed artist investigations and analyses, focusing on the formal elements of art and design principles. Whether you're a beginner or a seasoned art aficionado, there's always something new to discover.</p>
             <h3>Exclusive Updates</h3>
-            <p>(Possibility) Sign up to receive email newsletters featuring our latest blog posts and updates. Dive deeper into the world of art with expert insights and recommended readings, tailored to enhance your understanding and appreciation of art.</p>
+            <p>Sign up to receive email newsletters featuring our latest blog posts and updates. Dive deeper into the world of art with expert insights and recommended readings, tailored to enhance your understanding and appreciation of art.</p>
             <p>Join us at Artist Investigators and become part of a community dedicated to exploring, analysing, and celebrating the beauty and diversity of art. Start your journey today!</p>
         </section>
+        
+        <!-- About the Creator -->
+        <!-- About the Creator -->
+        <section class="about-us">
+            <h2>About the Creator</h2>
+            <div class="business-card">
+                <img src="media/branding/creator-photo.jpg" alt="Antoinette Brits" class="card-photo">
+                <div class="card-info">
+                    <p class="card-name">Antoinette Brits</p>
+                    <p class="card-caption">Full Stack Web Developer  <br>
+                        Assessment Developer  <br>
+                        Art Enthusiast  <br>
+                        Drummer</p>
+                    <p class="card-link"><a href="https://www.linkedin.com/in/antoinette-brits-577070186/" target="_blank" rel="noopener noreferrer">Connect with me on LinkedIn</a></p>
+                </div>
+            </div>
+            <h3>My Passion for Art</h3>
+            <p>The Artist Investigators website was born out of my deep passion for art and my journey through studying Visual Arts in high school. During my time as a student, I became fascinated by the concept of 'artist investigations'—an in-depth study of a specific artist that involves analyzing their work, style, and impact. Initially, I dreamed of writing a book on artist investigations, but I realized that a website would allow me to keep up with the times and offer a platform that could be regularly updated with both historical and contemporary artists.</p>
+            <h3>My Background</h3>
+            <p>My formal introduction to art began in high school, where I studied Visual Arts and developed a strong foundation in art history and critique. After completing my studies, I transitioned into a career focused on education, where I developed Visual Arts assessments for high school students. This included crafting practical assessment tasks, tests, and exams for art courses, covering everything from the different art movements to South African art. This experience deepened my understanding and appreciation for art and the way it can be taught and explored.</p>
+            <h3>Overcoming Challenges</h3>
+            <p>One of the key challenges in creating this website was determining what content to include to make it truly comprehensive and informative. My goal has always been to provide valuable insights and knowledge that goes beyond the surface level, ensuring that visitors leave with a deeper understanding of the artists and their works.</p>
+            <h3>My Goal</h3>
+            <p>Through this website, I hope to inspire others to be more inquisitive about art, to delve deeper into their analysis, and to continuously learn. Artist Investigators is not just a resource—it's a tool for fostering curiosity and encouraging a thoughtful approach to art.</p>
+        </section>
+
         <section class="vision-mission">
             <h2>Our Vision & Mission</h2>
             <div class="vision-mission-content">

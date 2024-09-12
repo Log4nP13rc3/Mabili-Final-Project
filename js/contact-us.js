@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#contact-us-form').submit(function(event) { // Updated ID here
+    $('#contact-us-form').submit(function(event) {
         event.preventDefault();
 
         // Collecting user data from the form fields
@@ -25,9 +25,17 @@ $(document).ready(function() {
                     errorHtml += '</ul>';
                     $('#js-message').html(errorHtml);
                 } else if (response.success) {
+                    // Fetch the email content and show the popup
+                    fetch('ajax/get-email-content.php')
+                      .then(response => response.text())
+                      .then(emailContent => {
+                        $('#emailContent').html(emailContent);
+                        $('#emailPopup').show();
+                      });
+
                     // Display success message or clear the form
                     $('#js-message').html('<p>Your message has been sent successfully.</p>');
-                    $('#contact-us-form')[0].reset(); // Updated ID here
+                    $('#contact-us-form')[0].reset(); // Reset the form
                 }
             },
             error: function(xhr, status, error) {
@@ -35,5 +43,10 @@ $(document).ready(function() {
                 $('#js-message').html('An error occurred: ' + error);
             }
         });
+    });
+
+    // Close the popup
+    $('#closePopup').click(function() {
+        $('#emailPopup').hide();
     });
 });

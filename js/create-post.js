@@ -54,10 +54,10 @@ $(document).ready(function() {
                     // Show success message
                     $('#message').html('<p class="success-message">' + response.message + '</p>');
                     
-                    // Redirect to dashboard after 3 seconds
+                    // Redirect to dashboard after 0 seconds
                     setTimeout(function() {
                         window.location.href = 'dashboard.php';
-                    }, 3000);
+                    }, 0);
                 }
             },
             error: function(xhr, status, error) {

@@ -186,6 +186,8 @@ function sendEmail($to, $subject, $message, $emailHost, $emailPort, $emailUserna
 
     try {
         $phpmailer->send();
+        // Save email content to session for displaying in the popup
+        $_SESSION['emailContent'] = $phpmailer->Body;
     } catch (Exception $e) {
         echo json_encode(['error' => 'Message could not be sent. Mailer Error: ' . $phpmailer->ErrorInfo]);
         exit;

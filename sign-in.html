@@ -6,6 +6,7 @@
     <title>Sign In</title>
     <link rel="icon" href="media/branding/icon.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/sign-in.js"></script>
     <script src="js/check-and-logout.js"></script>
@@ -26,14 +27,22 @@
                 <div class="sign-in-form-container">
                     <h1 class="page-heading">Sign In</h1>
                     <form id="sign-in-form" aria-labelledby="sign-in-heading" class="sign-in-form">
+                        <!-- Honeypot CAPTCHA field -->
+                        <div style="display:none;">
+                            <label for="honeypot">Leave this field empty</label>
+                            <input type="text" id="honeypot" name="honeypot" value="">
+                        </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" required aria-required="true" placeholder="Enter your email address" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required aria-required="true" placeholder="Enter your password" class="form-control">
-                        </div>
+                            <div class="password-container">
+                                <input type="password" id="password" name="password" required aria-required="true" placeholder="Enter your password" class="form-control">
+                                <i class="toggle-password fa fa-eye"></i>
+                            </div>
+                        </div>                        
                         <button type="submit" class="btn btn-primary" id="sign-in-button">Sign In</button>
                     </form>
                     <div id="message"></div>

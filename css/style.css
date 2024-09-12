@@ -155,6 +155,30 @@ button {
     margin: 0 10px;
 }
 
+textarea {
+    width: 300px; 
+    resize: vertical; 
+    max-height: 200px;
+  }
+
+/* Password Peek Mechanism */
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #333;
+}
+
+.toggle-password:hover {
+    color: #2c6e6f;
+}
+
 /* Redirects Pages */
 .redirects-container {
     text-align: center;

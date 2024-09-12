@@ -47,8 +47,72 @@ session_start();
             </div>
         </section>
     </main>
+
+    <!-- Popup structure -->
+    <div id="emailPopup" style="display:none;">
+        <div class="popup-content">
+            <h2>What the email would look like:</h2>
+            <div id="emailContent"></div>
+            <button id="closePopup" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Artist Investigators. All rights reserved.</p>
     </footer>
+
+    <script>
+        // On form submission, fetch the email content and show the popup
+        document.getElementById('contact-us-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+            
+            // Get email content from the session (via AJAX call)
+            fetch('ajax/get-email-content.php') 
+              .then(response => response.text())
+              .then(emailContent => {
+                document.getElementById('emailContent').innerHTML = emailContent;
+                document.getElementById('emailPopup').style.display = 'block';
+              });
+        });
+
+        // Close the popup
+        document.getElementById('closePopup').addEventListener('click', function() {
+            document.getElementById('emailPopup').style.display = 'none';
+        });
+    </script>
+
+    <style>
+        /* Basic CSS for the popup */
+        #emailPopup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .email-wrapper main {
+            display: block;
+            flex: none;
+        }
+
+        #closePopup {
+            background-color: #ff6f61ff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popup-content {
+            max-height: 500px;
+            max-width: 500px;
+            overflow-y: auto;
+        }
+    </style>
+
 </body>
 </html>
