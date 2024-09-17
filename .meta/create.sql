@@ -1,11 +1,11 @@
 -- Drop the database if it exists
-DROP DATABASE IF EXISTS artist_investigators;
+DROP DATABASE IF EXISTS mabilipr_antoinettebrits;
 
 -- Create the database
-CREATE DATABASE artist_investigators;
+CREATE DATABASE mabilipr_antoinettebrits;
 
 -- Use the newly created database
-USE artist_investigators;
+USE mabilipr_antoinettebrits;
 
 -- Create Users table
 CREATE TABLE users (
@@ -60,7 +60,7 @@ CREATE TABLE settings (
     bio TEXT NOT NULL,
     image_url VARCHAR(255) NOT NULL,
     FOREIGN KEY (email) REFERENCES users(email)
-);
+) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Create Newsletters table
 CREATE TABLE newsletters (
@@ -70,12 +70,12 @@ CREATE TABLE newsletters (
 ) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Create a dedicated user for the database
-DROP USER IF EXISTS 'art_inv_admin'@'localhost';
+DROP USER IF EXISTS 'mabilipr_antoinettebrits'@'localhost';
 
-CREATE USER 'art_inv_admin'@'localhost' IDENTIFIED BY 'Ar7157_1nv3571ga70r5_Adm1n!';
+CREATE USER 'mabilipr_antoinettebrits'@'localhost' IDENTIFIED BY '4x!)fjh0otbc';
 
 -- Grant necessary privileges to the new user
-GRANT SELECT, INSERT, UPDATE, DELETE ON artist_investigators.* TO 'art_inv_admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON mabilipr_antoinettebrits.* TO 'mabilipr_antoinettebrits'@'localhost';
 
 -- Apply changes
 FLUSH PRIVILEGES;
